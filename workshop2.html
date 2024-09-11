@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    //Exercise 1
+    document.write("<cite><strong>If I had nine hours to chop down a tree, I'd spend the first six sharpening my ax.</strong><br>-- Abraham Lincoln </cite>")
+
+
+// Exercise 2    
+function repeatingText(text) {
+    for (let i = 0; i < 50; i++) {
+        document.write(text + "<br>");
+    }
+}
+
+repeatingText("Hello World!");
+
+/* Exercise 3
+window.onload = function() {
+    // Check if the user is using Mozilla browser
+    if (navigator.userAgent.includes("Mozilla") && !navigator.userAgent.includes("Chrome")) {
+        // If Mozilla, load Mozilla's website
+        window.location.href = "http://www.mozilla.org";
+    } else {
+        // Otherwise, load some other website
+        window.location.href = "http://www.google.com";
+    }
+};*/
+
+//Exercise 4
+window.onload = function() {
+            var isStudent = confirm("Are you a student?");
+            
+            if (isStudent) {
+                document.getElementById("message").innerHTML = "Welcome student!";
+            } else {
+                document.getElementById("message").innerHTML = "Sorry, this page is for students only.";
+            }
+        };
+
+var images = [
+            "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+            "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+            "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg"
+            
+        ];
+
+        // Function to display a random image
+function RandomImage() {
+            
+            var randomIndex = Math.floor(Math.random() * 3);
+            
+            document.write('<img src="' + images[randomIndex] + '" alt="Random Image">');
+        }
+
+RandomImage();
+
+
+
+
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop2 Exercise</title>
+</head>
+
+<body>
+    <p id="message"></p>
+</body>
+</html>
