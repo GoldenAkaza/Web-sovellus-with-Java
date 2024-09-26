@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop03</title>
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+    <h1>Exercise 1</h1>
+    
+    <!-- Buttons -->
+    <button id="clickMeButton">Click me</button>
+    <button id="showTableButton">Show table</button>
+    <button id="geoButton">Geolocation</button>
+
+    <p id="output"></p> <!-- To display results for click and geolocation -->
+    
+    <h2 id="exerciseHeading">Exercise 2</h2>
+
+    <h2>Exercise 3</h2>
+    
+    <form onsubmit="return checkForm();">
+        <textarea id="textdata" rows="5" cols="30"></textarea><br>
+        <span id="charcount">Characters: 0</span><br>
+        <span id="message" style="color: red;"></span><br>
+        <button type="submit">Send me</button>
+    </form>
+
+
+    <h2 id="coords">Exercise 4</h2>
+
+    <div id="coordinates"></div>
+
+
+
+    <script>
+        //Exercise 1
+        // Button 1: Click Me - Display alert and show the current date
+        document.getElementById("clickMeButton").onclick = function() {
+            // Get the current date and time
+            var currentDate = new Date();
+            alert("You clicked me! " + currentDate);
+            document.getElementById("output").innerHTML = "You clicked the button! Current date: " + currentDate;
+        };
+
+        // Button 2: Show Table - Display a simple HTML table
+        document.getElementById("showTableButton").onclick = function() {
+            showTable(); // Call the showTable function when the button is clicked
+        };
+
+        function showTable() {
+            // Write the table to the page using document.write
+            document.write(`
+                <table border="1">
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                    </tr>
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>$320,800</td>
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                        <td>$170,750</td>
+                    </tr>
+                    <tr>
+                        <td>Ashton Cox</td>
+                        <td>Junior Technical Author</td>
+                        <td>$86,000</td>
+                    </tr>
+                    <tr>
+                        <td>Cedric Kelly</td>
+                        <td>Senior Javascript Developer</td>
+                        <td>$433,060</td>
+                    </tr>
+                    <tr>
+                        <td>Airi Satou</td>
+                        <td>Accountant</td>
+                        <td>$162,700</td>
+                    </tr>
+                </table>
+            `);
+        }
+
+        // Button 3: Geolocation - Get the user's coordinates and redirect to Google Maps
+        document.getElementById("geoButton").onclick = function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("output").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        };
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            document.getElementById("output").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+            console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+
+            // Redirect to Google Maps with the coordinates
+            window.location.href = `https://www.google.com/maps?q=${latitude},${longitude}`;
+        }
+
+        // Exercise 2
+        // Function to handle the mouse over event
+        document.getElementById("exerciseHeading").onmouseover = function() {
+            console.log("Stepped over my a mouse!");
+        };
+
+        // Function to handle the mouse out event
+        document.getElementById("exerciseHeading").onmouseout = function() {
+            alert("Bye bye mouse!");
+        };
+
+        //Exercise 3
+        // Function to trigger onfocus event
+        document.getElementById("textdata").onfocus = function() {
+            // Display a message and change background color when textarea is focused
+            document.getElementById("message").innerHTML = "Please fill in the form with proper data.";
+            document.getElementById("textdata").style.backgroundColor = "#f0f8ff"; // Light blue background
+        };
+
+        // Function to trigger onkeydown event
+        var charCount = 0;
+        document.getElementById("textdata").onkeydown = function(event) {
+            // Count key presses and display them on screen
+            charCount++;
+            document.getElementById("charcount").innerHTML = "Characters: " + charCount;
+        };
+
+        // Function to handle form submission
+        function checkForm() {
+            var textData = document.getElementById("textdata").value;
+
+            // Check if the textarea is empty
+            if (textData.trim() === "") {
+                alert("The textarea cannot be empty. Please enter some data.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission if not empty
+        }
+
+        //Exercise 4
+        // Adding the onmousemove event to the #coordinates div
+        document.getElementById("coordinates").onmousemove = function(event) {
+            // Get the X and Y coordinates
+            var x = event.clientX;
+            var y = event.clientY;
+
+            // Log the coordinates to the console
+            console.log("X: " + x + ", Y: " + y);
+
+            // Output the coordinates to the h2 element with id "coords"
+            document.getElementById("coords").innerHTML = "X: " + x + ", Y: " + y;}
+    </script>
+
+</body>
+</html>
