@@ -1,0 +1,43 @@
+#me {
+    width: 300px;
+    height: 200px;
+    background-color: lightblue;
+    margin-top: 10px;
+}
+
+.surprise {
+    font-size: 14px; 
+    margin-top: 10px;
+}
+
+#carimage {
+    width: 400px;
+    height: 250px;
+    margin-left: 30px;
+    position: absolute; /* Required for moving */
+    transition: all 0.5s ease;
+}
+
+/* Border styling for hover */
+#carimage.hovered {
+    border: 5px solid red;
+}
+
+#carimage.hovered {
+    border: 5px solid red;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}

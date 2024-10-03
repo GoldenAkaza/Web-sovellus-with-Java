@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop04</title>
+    <link rel="stylesheet" href="Workshop04_style.css"> </link>
+</head>
+<body>
+    <h1 id="workshopHeading">Workshop 4</h1>
+    <h2 id="exerciseHeading">Exercise 1</h2>
+    <p>This is paragraph 1.</p>
+    <p>This is paragraph 2.</p>
+    <p>This is paragraph 3.</p>
+    <p>This is paragraph 4.</p>
+    
+    <button id="button1">Button 1</button>
+    <button id="button2">Button 2</button>
+    <button id="button3">Button 3</button>
+
+    <h2>Exercise 2</h2>
+
+    <!-- Checkboxes -->
+    <input type="checkbox" id="hideCheckbox"> Hide me<br>
+    <input type="checkbox" id="showCheckbox"> Show me<br>
+    <input type="checkbox" id="surpriseCheckbox"> Surprise<br>
+
+    <!-- Div element with id "me" -->
+    <div id="me">
+        This is a box with id "me".
+    </div>
+
+    <!-- Elements with class "surprise" -->
+    <p class="surprise">This is the first surprise element.</p>
+    <p class="surprise">This is the second surprise element.</p>
+
+
+    <h2>Exercise 3</h2>
+    <!-- Pulldown menu -->
+    <select id="carSelect" onchange="changeCar()">
+        <option value="" disabled selected>Select a car</option>
+        <option value="audi">Audi</option>
+        <option value="bmw">BMW</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="tesla">Tesla</option>
+    </select>
+
+    <img id="carimage" src="https://via.placeholder.com/400x250?text=Select+a+car" alt="Car Image">
+
+    <h2>Exercise 4</h2>
+    
+    <!-- Buttons to trigger the actions -->
+    <ul>
+        <li><button onclick="move()">Move</button></li>
+        <li><button onclick="doMove()">Animate</button></li>
+        <li><button onclick="fadeOut()">Fade Out</button></li>
+        <li><button onclick="disappear()">Disappear</button></li>
+    </ul>
+
+    <h2>Exercise 5</h2>
+
+    <table id="employeeTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>$86,000</td>
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>$433,060</td>
+            </tr>
+            <tr>
+                <td>Airi Satou</td>
+                <td>Accountant</td>
+                <td>$162,700</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="addPresetRow()">Add Preset Row</button>
+
+    <h3>Add Custom Row</h3>
+    <label for="name">Name:</label>
+    <input type="text" id="name"><br><br>
+    <label for="position">Position:</label>
+    <input type="text" id="position"><br><br>
+    <label for="salary">Salary:</label>
+    <input type="text" id="salary"><br><br>
+    <button onclick="addCustomRow()">Add Custom Row</button>
+
+
+
+    <script src="Workshop04.js"></script>
+    
+</body>
+</html>
