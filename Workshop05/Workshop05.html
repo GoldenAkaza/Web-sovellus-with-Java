@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop05</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h2>Tehtävä 1 ja Tehtävä 4</h2>
+
+    <form id="contactForm" onsubmit="return validateForm()">
+        <label for="email">Sähköpostiosoite:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <span id="emailError" class="error-message"></span><br>
+    
+        <label for="comment">Kommentti:</label><br>
+        <textarea id="comment" name="comment"></textarea><br>
+        <span id="commentError" class="error-message"></span><br><br>
+    
+        <label for="contactMethod">Mieluinen yhteydenottotapa:</label><br>
+        <select id="contactMethod" name="contactMethod" onchange="showContactDetails()">
+            <option value="">Valitse...</option>
+            <option value="email">Sähköposti</option>
+            <option value="phone">Puhelin</option>
+            <option value="sms">SMS</option>
+        </select><br><br>
+    
+        <div id="contactDetails" class="hidden">
+            <label id="contactLabel" for="contactInput">Syötä valitun yhteydenottotavan tiedot:</label><br>
+            <input type="text" id="contactInput" name="contactInput"><br>
+            <span id="contactError" class="error-message"></span><br>
+        </div>
+    
+        <input type="submit" value="Lähetä">
+    </form>
+
+
+    <h2>Tehtävä 2</h2>
+    <p>Täytä tämä lomake laskeaksesi jäsenyytesi hinta. Jos maksat yli kaksi vuotta, saat 20% alennuksen!</p>
+
+    <form id="membershipForm">
+        <label for="membershipType">Jäsenyyden tyyppi:</label>
+        <select id="membershipType" name="membershipType" onchange="calculateCost()">
+            <option value="10">Perus - 10€</option>
+            <option value="15">Premium - 15€</option>
+            <option value="20">Kulta - 20€</option>
+            <option value="25">Platina - 25€</option>
+        </select><br><br>
+
+        <label for="years">Vuodet:</label>
+        <input type="number" id="years" name="years" value="1" min="1" onchange="calculateCost()"><br><br>
+
+        <label for="cost">Hinta (€):</label>
+        <input type="text" id="cost" name="cost" readonly><br><br>
+
+        <span id="discountMessage" class="discount-message"></span><br>
+        <span id="specialGreeting" class="special-greeting"></span><br>
+    </form>
+
+
+    <h2>Tehtävä 3</h2>
+
+    <fieldset>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+        </div>
+        <div>
+            <label for="price">Price Per Unit</label>
+            <input type="text" name="price" id="price" value="1.00" required>
+        </div>
+        <div>
+            <label for="tax">VAT (%)</label>
+            <input type="text" name="tax" id="tax" value="0.0" required>
+        </div>
+        <div>
+            <label for="discount">Discount</label>
+            <input type="text" name="discount" id="discount" value="0.00" required>
+        </div>
+        <div>
+            <label for="shipping">Shipping Cost (€)</label>
+            <input type="text" name="shipping" id="shipping" value="0.00" required>
+        </div>
+        <div>
+            <label for="total">Total</label>
+            <input type="text" name="total" id="total" value="0.00" readonly>
+        </div>
+        <div>
+            <input type="submit" value="Calculate" id="submit-calculate" onClick="calculate(); return false;">
+        </div>
+    </fieldset>
+
+    
+
+    <script src="script.js"></script>

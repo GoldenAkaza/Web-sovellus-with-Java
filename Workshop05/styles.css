@@ -1,0 +1,19 @@
+/* Tyyli virheellisten kenttien korostamiseksi */
+.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+.error-message {
+    color: red;
+    font-size: 12px;
+}
+
+.discount-message {
+    color: green;
+    font-weight: bold;
+}
+.special-greeting {
+    color: blue;
+    font-weight: bold;
+}
+
