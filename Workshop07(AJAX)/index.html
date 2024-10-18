@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop07 (AJAX)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Exercise 1</h1>
+    <button onclick="parseData()">Parse Quotes</button>
+    
+    <div id="output"></div>
+
+    <h2>Exercise 2 and 3</h2>
+    <button onclick="loadXMLDoc(), loadData()">Load Quotes</button>
+
+    <!-- Div where the raw XML content will be displayed -->
+    <div id="quotes" style="margin-top: 20px; border: 1px solid #000; padding: 10px;"></div>
+
+
+    <!-- Div where the table data will be displayed -->
+    <div id="tabledata">
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Quote</strong></td>
+                    <td><strong>Author</strong></td>
+                </tr>
+                <!-- Data rows will be injected here -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <h2>Exercise 4</h2>
+    <button onclick="loadNews()">Load News</button>
+
+    <!-- Div where the news list will be displayed -->
+    <div id="newsFeed" style="margin-top: 20px;">
+        <ul id="newsList">
+            <!-- News items will be injected here -->
+        </ul>
+    </div>
+    
+<script src="script.js"></script>
+</body>
+</html>
