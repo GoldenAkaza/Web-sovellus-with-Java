@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop06</title>
+</head>
+<body onload="loadData()">
+    
+    <h1>Exercise 1</h1>
+    <form id="travelForm">
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination"><br><br>
+
+        <label for="arrivalDate">Arrival Date:</label>
+        <input type="date" id="arrivalDate" name="arrivalDate"><br><br>
+
+        <label for="services">Services:</label><br>
+        <input type="checkbox" id="internet" name="services" value="Internet"> Internet<br>
+        <input type="checkbox" id="airConditioning" name="services" value="Air Conditioning"> Air Conditioning<br>
+        <input type="checkbox" id="minibar" name="services" value="Minibar"> Minibar<br>
+        <input type="checkbox" id="carRent" name="services" value="Car rent"> Car Rent<br>
+        <input type="checkbox" id="sauna" name="services" value="Sauna"> Sauna<br><br>
+
+        <button type="button" onclick="saveData()">Save Data</button>
+    </form>
+
+
+    <h2>Exercise 2</h2>
+    <div id="sessionData">
+        Session data goes here!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<!-- Exercise 3
+Sessionstorage
+
+
+<body onload="loadDataFromSessionStorage()">
+    <h1>Travel Booking Form</h1>
+    <form id="travelForm">
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination"><br><br>
+
+        <label for="arrivalDate">Arrival Date:</label>
+        <input type="date" id="arrivalDate" name="arrivalDate"><br><br>
+
+        <label for="services">Services:</label><br>
+        <input type="checkbox" id="internet" name="services" value="Internet"> Internet<br>
+        <input type="checkbox" id="airConditioning" name="services" value="Air Conditioning"> Air Conditioning<br>
+        <input type="checkbox" id="minibar" name="services" value="Minibar"> Minibar<br>
+        <input type="checkbox" id="carRent" name="services" value="Car rent"> Car Rent<br>
+        <input type="checkbox" id="sauna" name="services" value="Sauna"> Sauna<br><br>
+
+        <button type="button" onclick="saveDataToSessionStorage()">Save Data</button>
+    </form>
+
+    <h2>Session Data</h2>
+    <div id="sessionData">
+        Session data goes here!
+    </div>
+
+    <script src="script-session.js"></script>
+</body>
+-->
+
+
+
+
+</html>
