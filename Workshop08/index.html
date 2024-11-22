@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Basics Exercise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Exercise 1: JSON Basics</h1>
+    <button onclick="displayNames()">Display First and Last Names</button>
+    <button onclick="displayAllData()">Display All Data</button>
+    
+    <div id="output">JSON data goes here.</div>
+
+    <h1>Exercise 2: Parsing JSON from Web</h1>
+    <button onclick="loadRawData()">Load raw data</button>
+    <button onclick="loadParsedData()">Load and parse the data</button>
+    
+    <h2>Raw Data</h2>
+    <div id="rawdata">Raw data goes here.</div>
+    
+    <h2>Parsed Data</h2>
+    <table id="parseddata">
+        <!-- Parsed table data will go here -->
+    </table>
+
+    <h1>Exercise 3: OpenWeatherMap API</h1>
+    
+    <h2>Select a city from the list:</h2>
+    <select id="citySelector" onchange="fetchWeatherByCity()">
+        <option value="">--Select a city--</option>
+        <option value="Helsinki">Helsinki</option>
+        <option value="Stockholm">Stockholm</option>
+        <option value="Rome">Rome</option>
+        <option value="New York">New York</option>
+    </select>
+    
+    <h2>Or type in a search query:</h2>
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <button onclick="fetchWeatherBySearch()">Search</button>
+    
+    <h2>Weather Data:</h2>
+    <div id="weatherData">Weather data goes here.</div>
+
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
