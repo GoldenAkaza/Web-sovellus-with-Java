@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop09 (jQuery)</title>
+    <!-- Exercise 1: Adding jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Workshop 09</h1>
+        <h2>Exercise 2: DOM scripting</h2>
+            <ol type="1">
+                <li>Find a reference to all H3 -tags?
+                <br>$('H3')</br></li>
+                <li>Find a reference to div with an id='contant' and replace the contents with a text of your choice else?  
+                <br>$('#contant').text('Your custom text here!')</br></li>
+                <li>Find a reference to the img and replace the src attribute with some other image online?
+                <br>$('img').attr('src', 'https://via.placeholder.com/150')</br></li>
+                <li>Find the element with a class sideBarListBox and show/hide it?
+                <br>$('.sideBarListBox').toggle()</br></li>
+                <li>Find any li element that contains the text "Lorem" and add css underline -attribute to them?
+                <br>$('li:contains("Lorem")').css('text-decoration', 'underline') </br></li>
+                <li>Find all the anchor tags within the class SideBarListBox and apply css modifications of your choice to them.
+                <br>$('.sideBarListBox a').css({
+                    'color': 'blue',
+                    'font-weight': 'bold'
+                })</br></li>
+            </ol>
+
+            <H3>H3 reference</H3>
+            <div id='contant'></div>
+            <img>
+            <div class="sideBarListBox">
+                <a href="">Yet Another Link</a>
+                <a href="">More Examples</a>
+            </div>
+
+        <h2 id="mainHeading">Exercise 3: Effects and animation</h2>
+        <div id="mainContent">
+            <p>This is the main content of the page. Experiment with the buttons below to see jQuery effects in action!</p>
+        </div>
+
+        <div class="buttons">
+            <button id="fadeInHeading">Fade In Heading</button>
+            <button id="fadeOutHeading">Fade Out Heading</button>
+            <button id="slideUpContent">Slide Up Content</button>
+            <button id="slideDownContent">Slide Down Content</button>
+            <button id="animateBox">Run Animation</button>
+        </div>
+
+        <div id="animatedBox" style="width: 100px; height: 100px; background-color: red; margin-top: 20px;"></div>
+
+
+        <h2>Exercise 4: Ajax</h2>
+        <label for="contentSelector">Select an item:</label>
+        <select id="contentSelector">
+        <option value="">-- Select an item --</option>
+        <option value="title">Title</option>
+        <option value="description">Description</option>
+        <option value="link">Link</option>
+        </select>
+
+        <div id="contentDiv">
+        <p>Content will be loaded here...</p>
+        </div>
+
+
+
+        <script>
+        //Exercise 3: Effects and animation
+
+        $(document).ready(function () {
+            // Fade In the heading
+            $('#fadeInHeading').click(function () {
+                $('#mainHeading').fadeIn('slow');
+            });
+
+            // Fade Out the heading
+            $('#fadeOutHeading').click(function () {
+                $('#mainHeading').fadeOut('slow');
+            });
+
+            // Slide Up the content
+            $('#slideUpContent').click(function () {
+                $('#mainContent').slideUp('slow');
+            });
+
+            // Slide Down the content
+            $('#slideDownContent').click(function () {
+                $('#mainContent').slideDown('slow');
+            });
+
+            // Custom animation sequence
+            $('#animateBox').click(function () {
+                $('#animatedBox')
+                    .animate({ width: '200px', height: '200px' }, 1000) // Expand
+                    .animate({ backgroundColor: '#00ff00' }, 1000) // Change color
+                    .animate({ marginLeft: '+=150px' }, 1000) // Move right
+                    .animate({ width: '100px', height: '100px', marginLeft: '0px' }, 1000); // Reset
+            });
+        });
+
+
+        //Exercise 4: Ajax
+
+        $(document).ready(function () {
+            // URL for the RSS feed
+            const rssUrl = "https://meijastiina.github.io/news_rss_topstories.xml";
+
+            // Function to fetch and parse the RSS feed
+            function loadRSSContent(type) {
+                $('#contentDiv').text('Loading...'); // Show loading message
+
+                $.ajax({
+                    url: rssUrl,
+                    dataType: "xml",
+                    success: function (data) {
+                        let content = "";
+
+                        // Parse the XML and extract the requested type (title, description, or link)
+                        $(data)
+                            .find("item")
+                            .each(function () {
+                                const value = $(this).find(type).text();
+                                if (value) {
+                                    if (type === "link") {
+                                        // For links, create clickable hyperlinks
+                                        content += `<p><a href="${value}" target="_blank">${value}</a></p>`;
+                                    } else {
+                                        content += `<p>${value}</p>`;
+                                    }
+                                }
+                            });
+
+                        // Display the content in the div
+                        $('#contentDiv').html(content || "No content available.");
+                    },
+                    error: function () {
+                        $('#contentDiv').text("An error occurred while loading the RSS feed.");
+                    },
+                });
+            }
+
+            // Event listener for the dropdown menu
+            $('#contentSelector').change(function () {
+                const selectedOption = $(this).val();
+                if (selectedOption) {
+                    loadRSSContent(selectedOption);
+                } else {
+                    $('#contentDiv').html('<p>Content will be loaded here...</p>'); // Reset content
+                }
+            });
+        });
+        </script>
+</body>
+</html>
